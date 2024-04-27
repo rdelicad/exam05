@@ -1,0 +1,96 @@
+Nombre de la asignación : cpp_module01
+Archivos esperados : Warlock.cpp Warlock.hpp
+                   ASpell.hpp ASpell.cpp
+				   ATarget.hpp ATarget.cpp
+				   Fwoosh.hpp Fwoosh.cpp
+				   Dummy.hpp Dummy.cpp
+--------------------------------------------------------------------------------
+
+En la clase Warlock, la sentencia switch está PROHIBIDA y su uso
+resultaría en un -42.
+
+Cree una clase abstracta llamada ASpell, en la forma de Coplien, que tenga los
+siguientes atributos protegidos:
+
+* name (string)
+* effects (string)
+
+Ambos tendrán getters (getName y getEffects) que devuelven cadenas.
+
+Añade también un método clone pure que devuelva un puntero a ASpell.
+
+Todas estas funciones pueden ser llamadas sobre un objeto constante.
+
+ASpell tiene un constructor que toma su nombre y sus efectos, en ese orden.
+
+Ahora crearás una clase abstracta ATarget, en la forma de Coplien. Tiene un atributo type
+que es una cadena, y un getter asociado, getType, que devuelve una referencia a la constante cadena.
+referencia a la cadena constante.
+
+De forma muy similar a ASpell, tiene un método puro clone().
+
+Todas estas funciones pueden ser llamadas sobre un objeto constante.
+
+Tiene un constructor que toma su tipo.
+
+Ahora, añade a tu ATarget una función getHitBySpell que tome una referencia a la constante
+constante ASpell.
+
+Mostrará :
+
+<TYPE> has been <EFFECTS>!
+
+<TYPE> es el tipo del ATarget, y <EFFECTS> es el retorno de la función
+getEffects del ASpell.
+
+Finalmente, añada a su clase ASpell una función de lanzamiento que tome una referencia a la constante
+constante ATarget.
+
+Esta simplemente llamará a getHitBySpell del objeto pasado, pasando la instancia actual como parámetro.
+instancia actual como parámetro.
+
+Cuando todo esto esté hecho, crea una implementación de ASpell llamada Fwoosh. Su constructor por defecto
+constructor por defecto establecerá el nombre a «Fwoosh» y los efectos a
+«fwooshed». Por supuesto, implementará el método clone(). En el caso de
+Fwoosh, devolverá un puntero a un nuevo objeto Fwoosh.
+
+De la misma manera, cree un ATarget concreto llamado Dummy, cuyo tipo
+es «Target Practice Dummy». También debes implementar su método clone().
+
+Añade al Warlock las siguientes funciones miembro:
+
+* learnSpell, toma un puntero a ASpell, que hace que el Brujo aprenda un hechizo
+* forgetSpell, toma una cadena correspondiente a un nombre de hechizo, y hace que el
+  hechicero lo olvide. Si no es un hechizo conocido, no hace nada.
+* launchSpell, toma una cadena (un nombre de hechizo) y una referencia a ATarget, que
+  lanza el hechizo sobre el objetivo seleccionado. Si no es un hechizo conocido, no hace
+  nada.
+
+Necesitarás un nuevo atributo para almacenar los hechizos que conoce tu Brujo. Varios
+tipos encajan, depende de ti elegir el mejor.
+
+Abajo hay un posible main de prueba y su salida esperada:
+
+Traducción realizada con la versión gratuita del traductor DeepL.com
+
+int main()
+{
+  Warlock richard("Richard", "the Titled");
+
+  Dummy bob;
+  Fwoosh* fwoosh = new Fwoosh();
+
+  richard.learnSpell(fwoosh);
+
+  richard.introduce();
+  richard.launchSpell("Fwoosh", bob);
+
+  richard.forgetSpell("Fwoosh");
+  richard.launchSpell("Fwoosh", bob);
+}
+
+~$ ./a.out | cat -e
+Richard: This looks like another boring day.$
+Richard: I am Richard, the Titled!$
+Target Practice Dummy has been fwooshed!$
+Richard: My job here is done!$

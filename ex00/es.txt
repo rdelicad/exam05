@@ -1,0 +1,82 @@
+Nombre de la asignación : cpp_module00
+Archivos esperados : Warlock.cpp Warlock.hpp
+--------------------------------------------------------------------------------
+
+Crea una clase Warlock. Tiene que estar en la forma de Coplien.
+
+Tiene los siguientes atributos privados :
+* name (string)
+* title (string)
+
+Como son privados, escribirás los siguientes getters :
+* getName, devuelve una referencia a la cadena constante
+* getTitle, devuelve una referencia a la cadena constante
+
+Estas dos funciones tendrán que ser invocables en un Warlock constante.
+
+Crea el siguiente setter: 
+* setTitle, devuelve void y toma una referencia a una cadena constante.
+
+Su Warlock también tendrá, además de lo requerido por la forma Coplien's
+un constructor que tome, en este orden, su nombre y su título. Su Warlock
+no podrá ser copiado, instanciado por copia, o instanciado sin un
+nombre y un título.
+
+Por ejemplo :
+
+Warlock bob;                            //Does not compile
+Warlock bob("Bob", "the magnificent");  //Compiles
+Warlock jim("Jim", "the nauseating");   //Compiles
+bob = jim;                              //Does not compile
+Warlock jack(jim);                      //Does not compile
+
+Al crearse, el Warlock dice :
+
+<NAME>: This looks like another boring day.
+
+Por supuesto, siempre que utilicemos marcadores de posición como <NAME>, <TITLE>, etc...
+en las salidas, los sustituiremos por el valor apropiado. Sin los < y >.
+
+Cuando muere, dice:
+
+<NAME>: My job here is done!
+
+Nuestro Warlock también debe ser capaz de presentarse, mientras se jacta con todo su
+fuerza.
+
+Así que escribirá la siguiente función:
+* void introduce() const;
+
+Debe mostrar:
+
+<NAME>: I am <NAME>, <TITLE>!
+
+He aquí un ejemplo de una función principal de prueba y su salida asociada:
+
+int main()
+{
+  Warlock const richard("Richard", "Mistress of Magma");
+  richard.introduce();
+  std::cout << richard.getName() << " - " << richard.getTitle() << std::endl;
+
+  Warlock* jack = new Warlock("Jack", "the Long");
+  jack->introduce();
+  jack->setTitle("the Mighty");
+  jack->introduce();
+
+  delete jack;
+
+  return (0);
+}
+
+~$ ./a.out | cat -e
+Richard: This looks like another boring day.$
+Richard: I am Richard, Mistress of Magma!$
+Richard - Mistress of Magma$
+Jack: This looks like another boring day.$
+Jack: I am Jack, the Long!$
+Jack: I am Jack, the Mighty!$
+Jack: My job here is done!$
+Richard: My job here is done!$
+~$
+
