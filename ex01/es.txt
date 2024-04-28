@@ -50,7 +50,7 @@ Esta simplemente llamará a getHitBySpell del objeto pasado, pasando la instanci
 instancia actual como parámetro.
 
 Cuando todo esto esté hecho, crea una implementación de ASpell llamada Fwoosh. Su constructor por defecto
-constructor por defecto establecerá el nombre a «Fwoosh» y los efectos a
+establecerá el nombre a «Fwoosh» y los efectos a
 «fwooshed». Por supuesto, implementará el método clone(). En el caso de
 Fwoosh, devolverá un puntero a un nuevo objeto Fwoosh.
 
