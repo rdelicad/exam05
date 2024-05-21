@@ -25,7 +25,6 @@ ASpell tiene un constructor que toma su nombre y sus efectos, en ese orden.
 
 Ahora crearás una clase abstracta ATarget, en la forma de Coplien. Tiene un atributo type
 que es una cadena, y un getter asociado, getType, que devuelve una referencia a la constante cadena.
-referencia a la cadena constante.
 
 De forma muy similar a ASpell, tiene un método puro clone().
 
@@ -33,8 +32,8 @@ Todas estas funciones pueden ser llamadas sobre un objeto constante.
 
 Tiene un constructor que toma su tipo.
 
-Ahora, añade a tu ATarget una función getHitBySpell que tome una referencia a la constante
-constante ASpell.
+Ahora, añade a tu ATarget una función getHitBySpell que tome una referencia 
+ASpell constante.
 
 Mostrará :
 
@@ -43,8 +42,8 @@ Mostrará :
 <TYPE> es el tipo del ATarget, y <EFFECTS> es el retorno de la función
 getEffects del ASpell.
 
-Finalmente, añada a su clase ASpell una función de lanzamiento que tome una referencia a la constante
-constante ATarget.
+Finalmente, añade a tu clase ASpell una función de lanzamiento que tome una referencia 
+a la constante ATarget.
 
 Esta simplemente llamará a getHitBySpell del objeto pasado, pasando la instancia actual como parámetro.
 instancia actual como parámetro.
