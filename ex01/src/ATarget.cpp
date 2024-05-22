@@ -1,4 +1,4 @@
-#include "ATarget.hpp"
+#include "../include/ATarget.hpp"
 
 ATarget::ATarget(const std::string type)
 : _type(type)

@@ -1,4 +1,4 @@
-#include "ASpell.hpp"
+#include "../include/ASpell.hpp"
 
 ASpell::ASpell(const std::string &name, const std::string &effects)
 : _name(name), _effects(effects)

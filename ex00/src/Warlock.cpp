@@ -1,4 +1,4 @@
-#include "Warlock.hpp"
+#include "../include/Warlock.hpp"
 
 Warlock::Warlock(const std::string &name, const std::string &title)
 : _name(name), _title(title)
