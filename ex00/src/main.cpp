@@ -1,4 +1,4 @@
-#include "Warlock.hpp"
+#include "../include/Warlock.hpp"
 
 int main()
 {

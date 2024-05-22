@@ -1,7 +1,7 @@
-#include "Warlock.hpp"
-#include "Dummy.hpp"
-#include "Fwoosh.hpp"
-#include "ASpell.hpp"
+#include "../include/Warlock.hpp"
+#include "../include/Dummy.hpp"
+#include "../include/Fwoosh.hpp"
+#include "../include/ASpell.hpp"
 
 int main()
 {
