@@ -37,47 +37,16 @@ void Warlock::introduce() const
 
 void Warlock::learnSpell(ASpell *spell)
 {
-	std::vector<ASpell *>::iterator it = _spells.begin();
-	std::vector<ASpell *>::iterator ite = _spells.end();
-
-	while (it != ite)
-	{
-		if ((*it)->getName() == spell->getName())
-			return ;
-		it++;
-	}
-	_spells.push_back(spell);
+	_SpellBook.learnSpell(spell);
 }
 
 void Warlock::forgetSpell(std::string spellName)
 {
-	std::vector<ASpell *>::iterator it = _spells.begin();
-	std::vector<ASpell *>::iterator ite = _spells.end();
-
-	while (it != ite)
-	{
-		if ((*it)->getName() == spellName)
-		{
-			delete *it;
-			_spells.erase(it);
-			return ;
-		}
-		it++;
-	}
+	_SpellBook.forgetSpell(spellName);
 }
 
-void Warlock::launchSpell(std::string spellName, ATarget &target)
+void Warlock::launchSpell(std::string spellName, const ATarget &target)
 {
-	std::vector<ASpell *>::iterator it = _spells.begin();
-	std::vector<ASpell *>::iterator ite = _spells.end();
-
-	while (it != ite)
-	{
-		if ((*it)->getName() == spellName)
-		{
-			(*it)->launch(target);
-			return ;
-		}
-		it++;
-	}
+	if (_SpellBook.createSpell(spellName))
+		_SpellBook.createSpell(spellName)->launch(target);
 }

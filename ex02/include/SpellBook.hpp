@@ -9,6 +9,8 @@ class SpellBook
 {
 	private:
 		std::vector<ASpell *> _spells;
+		SpellBook(const SpellBook &other);
+		SpellBook &operator=(const SpellBook &other);
 
 	public:
 		SpellBook();

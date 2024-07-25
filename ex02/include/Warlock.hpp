@@ -2,32 +2,31 @@
 #define WARLOCK_HPP
 
 #include <iostream>
-#include <string>
+#include <map>
 #include "ASpell.hpp"
-#include <vector>
+#include "ATarget.hpp"
+#include "SpellBook.hpp"
 
-class Warlock
-{
-	private:
-    std::string _name;
-    std::string _title;
-    std::vector<ASpell *> _spells;
+class Warlock {
 
-    Warlock(const Warlock &);
-    Warlock &operator=(const Warlock &);
+	private :
+		std::string _name;
+		std::string _title;
+		SpellBook _SpellBook;
+		Warlock & operator=(Warlock const & rhs);
+		Warlock(Warlock const & obj);
+		Warlock();
 
-  public:
-    Warlock(std::string const &name, std::string const &title);
-    ~Warlock();
-
-    const std::string &getName() const;
-    const std::string &getTitle() const;
-    void setTitle(const std::string &);
-    void introduce() const;
-
-    void learnSpell(ASpell *spell);
-    void forgetSpell(std::string spellName);
-    void launchSpell(std::string spellName, ATarget &target);
+	public :
+		Warlock(std::string const &name, std::string const &title);
+		~Warlock();
+		std::string const & getName() const;
+		std::string const & getTitle() const;
+		void	setTitle(std::string const & str);
+		void	introduce() const;
+		void learnSpell(ASpell* spell);
+		void forgetSpell(std::string SpellName);
+		void launchSpell(std::string SpellName, ATarget const & target);
 };
 
 
