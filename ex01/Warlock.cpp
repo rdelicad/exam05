@@ -44,7 +44,7 @@ void Warlock::learnSpell(ASpell *spell)
 void Warlock::forgetSpell(std::string spellname)
 {
     if (_spellBook.find(spellname) != _spellBook.end())
-        _spellBook.erase(spellname);
+        _spellBook.erase(_spellBook.find(spellname));
 }
 
 void Warlock::launchSpell(std::string spellname, const ATarget &target)
